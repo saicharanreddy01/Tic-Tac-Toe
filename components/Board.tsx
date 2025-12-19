@@ -12,7 +12,7 @@ interface BoardProps {
 
 const Board: React.FC<BoardProps> = ({ squares, onClick, winningLine, disabled }) => {
   return (
-    <div className="grid grid-cols-3 gap-1 bg-black p-1 neon-border-cyan rounded-lg overflow-hidden">
+    <div className="grid grid-cols-3 gap-0 border-2 border-gray-200 rounded-lg overflow-hidden shadow-sm">
       {squares.map((square, i) => (
         <Square
           key={i}

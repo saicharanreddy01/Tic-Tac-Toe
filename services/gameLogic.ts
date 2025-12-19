@@ -1,5 +1,5 @@
 
-import { Player, Move, Difficulty } from '../types';
+import { Player } from '../types';
 import { WINNING_LINES } from '../constants';
 
 export const calculateWinner = (squares: Player[]) => {
@@ -48,21 +48,7 @@ const minimax = (board: Player[], depth: number, isMaximizing: boolean): number 
   }
 };
 
-export const getAIMove = (board: Player[], difficulty: Difficulty): number => {
-  const availableMoves = board.map((val, idx) => (val === null ? idx : null)).filter((val) => val !== null) as number[];
-
-  if (difficulty === Difficulty.EASY) {
-    return availableMoves[Math.floor(Math.random() * availableMoves.length)];
-  }
-
-  if (difficulty === Difficulty.DIFFICULT) {
-    // 50/50 chance of being smart or random
-    if (Math.random() > 0.5) {
-      return availableMoves[Math.floor(Math.random() * availableMoves.length)];
-    }
-  }
-
-  // HARD logic or DIFFICULT smart half
+export const getAIMove = (board: Player[]): number => {
   let bestScore = -Infinity;
   let move = -1;
   for (let i = 0; i < 9; i++) {
