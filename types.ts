@@ -8,6 +8,8 @@ export interface GameState {
   winningLine: number[] | null;
   aiCommentary: string;
   isThinking: boolean;
+  xMoveHistory: number[];
+  oMoveHistory: number[];
 }
 
 export interface Move {
